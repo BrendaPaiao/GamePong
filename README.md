@@ -24,4 +24,4 @@ adquiridos. É uma iniciativa pessoal voltada à fixação de conteúdos, aprend
 - Base prática em React
 
 ## Status
-🚧 Projeto em desenvolvimento
+Projeto em desenvolvimento
