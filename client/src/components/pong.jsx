@@ -13,7 +13,7 @@ const Pong = function () {
             console.log('Conectado!');
         });
 
-        socket.on('Player_Connected', (players) => {
+        socket.on('players_Refresh', (players) => {
 
             setPlayers(players);
         });

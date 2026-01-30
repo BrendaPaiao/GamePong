@@ -21,10 +21,17 @@ io.on('connection', (socket) => {
 
     const name = 'Player_' + socket.id.substring(0, 4);
     game.players[socket.id] = { name };
+    refreshPlayers();
 
-    io.emit('Player_Connected', game.players);
-    console.log(game);
+    socket.on('disconnect', () => {
+        delete game.players[socket.id];
+        refreshPlayers();
+    })
 });
+
+const refreshPlayers = () => {
+    io.emit('players_Refresh', game.players);
+};
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
