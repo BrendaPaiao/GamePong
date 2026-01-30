@@ -12,8 +12,18 @@ const io = new Server(server, {
     },
 });
 
+const game = {
+    players: {}
+}
+
 io.on('connection', (socket) => {
-    console.log(`${socket.id} conectado.`)
+    console.log(`${socket.id} conectado.`);
+
+    const name = 'Player_' + socket.id.substring(0, 4);
+    game.players[socket.id] = { name };
+
+    socket.emit('Player_Connected', game.players);
+    console.log(game);
 });
 
 app.get('/', (req, res) => res.send('Hello World!'));
