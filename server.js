@@ -22,7 +22,7 @@ io.on('connection', (socket) => {
     const name = 'Player_' + socket.id.substring(0, 4);
     game.players[socket.id] = { name };
 
-    socket.emit('Player_Connected', game.players);
+    io.emit('Player_Connected', game.players);
     console.log(game);
 });
 
